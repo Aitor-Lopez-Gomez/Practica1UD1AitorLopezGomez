@@ -3,13 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="47f96810-fc4c-43b6-8280-c420d48aafcf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Altavoz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Altavoz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Camara.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Camara.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Foco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Foco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/MaterialAudiovisual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/MaterialAudiovisual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Microfono.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Microfono.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Proyector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Proyector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/Vista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Altavoz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Altavoz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Camara.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Camara.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Foco.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Foco.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Inventario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Inventario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/MaterialAudiovisual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/MaterialAudiovisual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Microfono.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Microfono.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Proyector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/modelo/Proyector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Inventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Inventario.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.PruebaInventario">
     <configuration name="MaterialAudiovisual" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.aitorl.agenciamaterialaudiovisual.modelo.MaterialAudiovisual" />
       <module name="Proyecto1UD1Aitor" />
@@ -81,8 +83,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PruebaInventario" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.aitorl.agenciamaterialaudiovisual.PruebaInventario" />
+      <module name="Proyecto1UD1Aitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aitorl.agenciamaterialaudiovisual.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PruebaInventario" />
         <item itemvalue="Application.MaterialAudiovisual" />
       </list>
     </recent_temporary>
@@ -99,7 +115,7 @@
       <updated>1793259640223</updated>
       <workItem from="1793259643570" duration="11892000" />
       <workItem from="1793343757483" duration="1679000" />
-      <workItem from="1793531540922" duration="19808000" />
+      <workItem from="1793531540922" duration="21990000" />
     </task>
     <servers />
   </component>
