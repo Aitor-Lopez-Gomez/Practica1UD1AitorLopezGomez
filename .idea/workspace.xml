@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47f96810-fc4c-43b6-8280-c420d48aafcf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/vista/Vista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/imgLateral.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,9 +30,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="195" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="322" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="256" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resource" />
@@ -93,7 +96,7 @@
       <updated>1793259640223</updated>
       <workItem from="1793259643570" duration="11892000" />
       <workItem from="1793343757483" duration="1679000" />
-      <workItem from="1793531540922" duration="14306000" />
+      <workItem from="1793531540922" duration="16908000" />
     </task>
     <servers />
   </component>

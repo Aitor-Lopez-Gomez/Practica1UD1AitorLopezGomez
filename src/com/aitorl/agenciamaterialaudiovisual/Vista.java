@@ -9,10 +9,6 @@ public class Vista {
     private JPanel panelMenu;
     private JButton btnMaterial;
     private JButton btnNuevo;
-    private JButton btnImportar;
-    private JButton btnExportar;
-    private JButton btnEliminar;
-    private JButton btnCerrar;
     private JPanel panelContenido;
     private JPanel panelCabecera;
     private JPanel panelTabla;
@@ -56,6 +52,9 @@ public class Vista {
     private JLabel lblVistaPreviaImagen;
     private JButton btnSeleccionarImagen;
     private JButton btnQuitarImagen;
+    private JButton btnAnadir;
+    private JButton btnGuardar;
+    private JButton btnEliminar;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
