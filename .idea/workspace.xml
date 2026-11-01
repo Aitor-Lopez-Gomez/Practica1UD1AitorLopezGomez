@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47f96810-fc4c-43b6-8280-c420d48aafcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto1UD1Aitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto1UD1Aitor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/vista/Vista.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +27,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="195" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="322" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/LGoodDatePicker-10.3.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resource" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,6 +45,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aitor\IdeaProjects\Proyecto1UD1Aitor\resource" />
       <recent name="C:\Users\aitor\IdeaProjects\Proyecto1UD1Aitor\libs" />
     </key>
   </component>
@@ -58,6 +61,26 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="MaterialAudiovisual" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.aitorl.agenciamaterialaudiovisual.modelo.MaterialAudiovisual" />
+      <module name="Proyecto1UD1Aitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aitorl.agenciamaterialaudiovisual.modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MaterialAudiovisual" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -68,7 +91,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1793259640223</updated>
-      <workItem from="1793259643570" duration="3919000" />
+      <workItem from="1793259643570" duration="11892000" />
+      <workItem from="1793343757483" duration="1679000" />
+      <workItem from="1793531540922" duration="14306000" />
     </task>
     <servers />
   </component>
@@ -80,7 +105,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
