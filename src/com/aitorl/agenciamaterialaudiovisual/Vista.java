@@ -1,14 +1,17 @@
 package com.aitorl.agenciamaterialaudiovisual;
 
+import com.aitorl.agenciamaterialaudiovisual.modelo.*;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Collection;
 
 public class Vista {
     private JPanel panelPrincipal;
@@ -174,11 +177,71 @@ public class Vista {
         return null;
     }
 
+    public void configurarTabla(){
+        String[] columnas = {
+            "ID", "Tipo", "Marca", "Modelo", "Precio", "Fecha", "Valoración", "Características"
+        };
+        DefaultTableModel modeloTabla = new DefaultTableModel(columnas,0);
+        tablaMateriales.setModel(modeloTabla);
+    }
+
+    public void actualizarTabla(Collection<MaterialAudiovisual> materiales){
+        DefaultTableModel modeloTabla = (DefaultTableModel) tablaMateriales.getModel();
+        modeloTabla.setRowCount(0);
 
 
+        for(MaterialAudiovisual material: materiales){
+            String caracterisitca = "";
+            if (material instanceof Camara){
+                Camara camara = (Camara) material;
+                caracterisitca = camara.getResolucion();
+            }
+            if (material instanceof Microfono){
+                Microfono microfono = (Microfono) material;
+                caracterisitca = microfono.getTipoConexion();
+            }
+            if(material instanceof  Foco){
+                Foco foco = (Foco) material;
+                caracterisitca = foco.getPotenciaVatios() + " W";
+            }
+            if(material instanceof Altavoz){
+                Altavoz altavoz = (Altavoz) material;
+                caracterisitca = altavoz.getPotenciaVatios() + " W";
+            }
+            if(material instanceof Altavoz){
+                Altavoz altavoz = (Altavoz) material;
+                caracterisitca = String.valueOf(altavoz.getPotenciaVatios() + " W");
+            }
+            if(material instanceof  Proyector){
+                Proyector proyector = (Proyector) material;
+                caracterisitca = proyector.getLuminosidad() + " lm";
+            }
+            modeloTabla.addRow(new Object[]{
+                    material.getId(),
+                    material.getClass().getSimpleName(),
+                    material.getMarca(),
+                    material.getModelo(),
+                    material.getPrecioPorDia(),
+                    material.getFechaRegistro(),
+                    material.getValoracion(),
+                    caracterisitca
+            });
+        }
+    }
 
 
+    public void resetearCampos(){
+        JButton[] estrellas = {
+                btnEstrella1, btnEstrella2, btnEstrella3, btnEstrella4, btnEstrella5
+        };
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtPrecio.setText("");
+        datePickerRegistro.setDate(null);
+        pintarEstrellas(0);
+        txtCampoEspecifico.setText("");
 
+    }
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(panelPrincipal,mensaje,"Error", JOptionPane.ERROR_MESSAGE);
     }

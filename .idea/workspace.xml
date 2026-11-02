@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="47f96810-fc4c-43b6-8280-c420d48aafcf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/PruebaInventario.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/Vista.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/PruebaInventario.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Inventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/modelo/Inventario.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="195" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="256" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="252" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resource" />
@@ -128,7 +131,7 @@
       <workItem from="1793259643570" duration="11892000" />
       <workItem from="1793343757483" duration="1679000" />
       <workItem from="1793531540922" duration="22107000" />
-      <workItem from="1793615240797" duration="13742000" />
+      <workItem from="1793615240797" duration="18817000" />
     </task>
     <servers />
   </component>

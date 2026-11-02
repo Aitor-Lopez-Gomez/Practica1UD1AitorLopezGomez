@@ -1,8 +1,7 @@
 package com.aitorl.agenciamaterialaudiovisual.controlador;
 
 import com.aitorl.agenciamaterialaudiovisual.Vista;
-import com.aitorl.agenciamaterialaudiovisual.modelo.Camara;
-import com.aitorl.agenciamaterialaudiovisual.modelo.Inventario;
+import com.aitorl.agenciamaterialaudiovisual.modelo.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,14 +11,15 @@ import java.time.LocalDate;
 public class ControladorMaterial {
     private Vista vista;
     private Inventario inventario;
-    private int valoracion = 4;
+    private int valoracion = 0;
     private int siguienteId = 1;
 
     public ControladorMaterial(Vista vista, Inventario inventario){
         this.vista = vista;
         this.inventario = inventario;
+        vista.configurarTabla();
+        vista.resetearCampos();
         vista.cambiarImagenMaterial("camara.jpg");
-
         vista.mostrarFormulario(false);
 
         vista.alPulsarNuevo(new ActionListener() {
@@ -89,7 +89,7 @@ public class ControladorMaterial {
                     vista.mostrarError("El campo especifico es obligatorio.");
                     return;
                 }
-                if(tipoMaterial.isEmpty()){
+                if (tipoMaterial == null) {
                     vista.mostrarError("Debes seleccionar un tipo de material.");
                     return;
                 }
@@ -98,21 +98,99 @@ public class ControladorMaterial {
 
                 try{
                     double precio = Double.parseDouble((precioTexto));
+
                     if(precio <= 0){
                         vista.mostrarError("El precio tiene que ser mayor que cero.");
                         return;
                     }
 
-                    System.out.println("ID preparado: " + id);
-                    System.out.println("Marca introducida: " + marca);
-                    System.out.println("Modelo introducido: " + modelo);
-                    System.out.println("Precio introducido: " + precio);
-                    System.out.println("Fecha de registro:" + fechaRegistro);
-                    System.out.println("Valoracion: " + valoracion);
-                    System.out.println("Campo espicifico: " + campoEspecifico);
-                    System.out.println("Tipo de material: " + tipoMaterial);
+
+                    if(tipoMaterial.equals("Cámara")){
+                        Camara camara = new Camara(id,marca,modelo,precio,fechaRegistro,valoracion,"camara.jpg",campoEspecifico);
+                        boolean agregado = inventario.agregarMaterial(camara);
+
+                        if(agregado){
+                            siguienteId++;
+                            vista.actualizarTabla(inventario.obtenerMateriales());
+                            vista.resetearCampos();
+
+                        } else {
+                            vista.mostrarError("Ya existe un material con ese ID.");
+                        }
+                    }
+                    if(tipoMaterial.equals("Micrófono")){
+                        Microfono microfono = new Microfono(id,marca,modelo,precio,fechaRegistro,valoracion,"microfono.jpg",campoEspecifico);
+                        boolean agregado = inventario.agregarMaterial(microfono);
+
+                        if(agregado){
+                            siguienteId++;
+                            vista.actualizarTabla(inventario.obtenerMateriales());
+                            vista.resetearCampos();
+
+                        } else {
+                            vista.mostrarError("Ya existe un material con ese ID.");
+                        }
+                    }
+                    if(tipoMaterial.equals("Foco")){
+                        int potencia = Integer.parseInt(campoEspecifico);
+                        if (potencia <= 0) {
+                            vista.mostrarError("La potencia debe ser mayor que cero.");
+                            return;
+                        }
+                        Foco foco = new Foco(id,marca,modelo,precio,fechaRegistro,valoracion,"foco.jpg",potencia);
+
+                        boolean agregado = inventario.agregarMaterial(foco);
+
+                        if(agregado){
+                            siguienteId++;
+                            vista.actualizarTabla(inventario.obtenerMateriales());
+                            vista.resetearCampos();
+
+                        } else {
+                            vista.mostrarError("Ya existe un material con ese ID.");
+                        }
+                    }
+                    if(tipoMaterial.equals("Altavoz")){
+                        int potencia = Integer.parseInt(campoEspecifico);
+                        if (potencia <= 0) {
+                            vista.mostrarError("La potencia debe ser mayor que cero.");
+                            return;
+                        }
+                        Altavoz altavoz = new Altavoz(id,marca,modelo,precio,fechaRegistro,valoracion,"altavoz.jpg",potencia);
+                        boolean agregado = inventario.agregarMaterial(altavoz);
+
+                        if(agregado){
+                            siguienteId++;
+                            vista.actualizarTabla(inventario.obtenerMateriales());
+                            vista.resetearCampos();
+
+                        } else {
+                            vista.mostrarError("Ya existe un material con ese ID.");
+                        }
+                    }
+                    if(tipoMaterial.equals("Proyector")){
+                        int luminosidad = Integer.parseInt(campoEspecifico);
+                        if (luminosidad <= 0) {
+                            vista.mostrarError("La luminosidad debe ser mayor que cero.");
+                            return;
+                        }
+                        Proyector proyector = new Proyector(id,marca,modelo,precio,fechaRegistro,valoracion,"proyector.jpg",luminosidad);
+                        boolean agregado = inventario.agregarMaterial(proyector);
+
+                        if(agregado){
+                            siguienteId++;
+                            vista.actualizarTabla(inventario.obtenerMateriales());
+                            vista.resetearCampos();
+
+                        } else {
+                            vista.mostrarError("Ya existe un material con ese ID.");
+                        }
+                    }
+
+
+
                 } catch (NumberFormatException ex){
-                    vista.mostrarError("Introduce un precio numérico válido.");
+                    vista.mostrarError("Introduce valores numéricos válidos en los campos correspondientes.");
                 }
 
 
