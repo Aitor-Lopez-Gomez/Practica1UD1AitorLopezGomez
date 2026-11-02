@@ -1,8 +1,13 @@
 package com.aitorl.agenciamaterialaudiovisual;
 
 import com.github.lgooddatepicker.components.DatePicker;
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class Vista {
     private JPanel panelPrincipal;
@@ -57,6 +62,52 @@ public class Vista {
     private JButton btnEliminar;
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+
     }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void alPulsarNuevo(ActionListener listener){
+        btnNuevo.addActionListener(listener);
+    }
+
+    public void alPulsarMateriales(ActionListener listener){
+        btnMaterial.addActionListener(listener);
+    }
+
+    public void mostrarFormulario(boolean mostrar){
+        panelFormulario.setVisible(mostrar);
+        panelContenido.revalidate();
+        panelContenido.repaint();
+    }
+
+    public void alCambiarTipoMaterial(ActionListener listener){
+        rbAltavoz.addActionListener(listener);
+        rbCamara.addActionListener(listener);
+        rbFoco.addActionListener(listener);
+        rbMicrofono.addActionListener(listener);
+        rbProyector.addActionListener(listener);
+    }
+
+    public void cambiarTextoCampo(String texto){
+        lblCampoEspecifico.setText(texto);
+    }
+
+    public void cambiarImagenMaterial(String nombreArchivo){
+        URL ruta = getClass().getResource("/" + nombreArchivo);
+
+        if(ruta == null){
+            lblVistaPreviaImagen.setIcon(null);
+            lblVistaPreviaImagen.setText("Imagen no disponible");
+            return;
+        }
+        ImageIcon icono = new ImageIcon(ruta);
+        Image imagen = icono.getImage().getScaledInstance(210,180, Image.SCALE_SMOOTH);
+
+        lblVistaPreviaImagen.setIcon(new ImageIcon(imagen));
+        lblVistaPreviaImagen.setText("");
+    }
+
 }
