@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="47f96810-fc4c-43b6-8280-c420d48aafcf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/PruebaInventario.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/Vista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/Vista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/PruebaInventario.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.java" afterDir="false" />
     </list>
@@ -131,7 +132,7 @@
       <workItem from="1793259643570" duration="11892000" />
       <workItem from="1793343757483" duration="1679000" />
       <workItem from="1793531540922" duration="22107000" />
-      <workItem from="1793615240797" duration="18817000" />
+      <workItem from="1793615240797" duration="27353000" />
     </task>
     <servers />
   </component>

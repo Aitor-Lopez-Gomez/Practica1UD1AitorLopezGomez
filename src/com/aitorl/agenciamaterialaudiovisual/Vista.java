@@ -6,6 +6,7 @@ import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -181,8 +182,16 @@ public class Vista {
         String[] columnas = {
             "ID", "Tipo", "Marca", "Modelo", "Precio", "Fecha", "Valoración", "Características"
         };
-        DefaultTableModel modeloTabla = new DefaultTableModel(columnas,0);
+        DefaultTableModel modeloTabla = new DefaultTableModel(columnas,0){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         tablaMateriales.setModel(modeloTabla);
+        Color fondoTabla = new Color(25, 44, 61);
+        scrollTabla.getViewport().setBackground(fondoTabla);
+
+
     }
 
     public void actualizarTabla(Collection<MaterialAudiovisual> materiales){
@@ -242,8 +251,90 @@ public class Vista {
         txtCampoEspecifico.setText("");
 
     }
+
+
+    public void alSeleccionarMaterial(ListSelectionListener listener){
+        tablaMateriales.getSelectionModel().addListSelectionListener(listener);
+
+
+    }
+
+    public String obtenerIdSeleccionado(){
+        int fila = tablaMateriales.getSelectedRow();
+        if(fila == -1){
+            return null;
+        }
+        int filaModelo = tablaMateriales.convertRowIndexToModel(fila);
+        return tablaMateriales.getModel().getValueAt(filaModelo,0).toString();
+    }
+
+    public void cargarMateriales(MaterialAudiovisual material){
+
+        txtMarca.setText(material.getMarca());
+        txtModelo.setText(material.getModelo());
+        txtPrecio.setText(String.valueOf(material.getPrecioPorDia()));
+        datePickerRegistro.setDate(material.getFechaRegistro());
+        cambiarImagenMaterial(material.getRutaImagen());
+
+        if (material instanceof  Camara){
+            Camara camara = (Camara) material;
+            rbCamara.setSelected(true);
+            txtCampoEspecifico.setText(camara.getResolucion());
+            pintarEstrellas(material.getValoracion());
+            cambiarTextoCampo("Resolucion");
+
+        } else if (material instanceof  Microfono){
+            Microfono microfono = (Microfono) material;
+            rbMicrofono.setSelected(true);
+            txtCampoEspecifico.setText((microfono.getTipoConexion()));
+            pintarEstrellas(material.getValoracion());
+            cambiarTextoCampo("Tipo de conexion: ");
+        } else if (material instanceof  Foco){
+            Foco foco = (Foco) material;
+            rbFoco.setSelected(true);
+            txtCampoEspecifico.setText(String.valueOf(foco.getPotenciaVatios()));
+            cambiarTextoCampo("Potencia (W): ");
+            pintarEstrellas(material.getValoracion());
+        } else if (material instanceof Altavoz){
+            Altavoz altavoz = (Altavoz) material;
+            txtCampoEspecifico.setText(String.valueOf(altavoz.getPotenciaVatios()));
+            rbAltavoz.setSelected(true);
+            cambiarTextoCampo("Potencia (W): ");
+            pintarEstrellas(material.getValoracion());
+        } else if(material instanceof Proyector){
+            Proyector proyector = (Proyector) material;
+            rbProyector.setSelected(true);
+            txtCampoEspecifico.setText(String.valueOf(proyector.getLuminosidad()));
+            cambiarTextoCampo("Luminosidad (lm): ");
+            pintarEstrellas(material.getValoracion());
+        }
+
+    }
+
+    public void alPulsarGuardar(ActionListener listener){
+        btnGuardar.addActionListener(listener);
+
+    }
+
+    public void alPulsarEliminar(ActionListener listener){
+        btnEliminar.addActionListener(listener);
+    }
+
+    public boolean confirmarEliminacion(String id){
+        int opcion = JOptionPane.showConfirmDialog(panelPrincipal,
+                "¿Seguro que quieres eliminar el material " + id + " ?",
+                "Confirmar eliminacion",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+        return opcion == JOptionPane.YES_OPTION;
+    }
+
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(panelPrincipal,mensaje,"Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void limpiarSeleccionTabla() {
+        tablaMateriales.clearSelection();
     }
 
 
