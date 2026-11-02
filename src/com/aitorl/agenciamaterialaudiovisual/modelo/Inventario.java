@@ -19,10 +19,12 @@ public class Inventario {
     }
 
     public MaterialAudiovisual buscarMaterial(String id){
+
         return materiales.get(id);
     }
 
     public boolean eliminarMaterial(String id){
+
         return materiales.remove(id) != null;
     }
 
@@ -35,6 +37,7 @@ public class Inventario {
     }
 
     public Collection<MaterialAudiovisual> obtenerMateriales(){
+
         return materiales.values();
     }
 }

@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.time.LocalDate;
 
 public class Vista {
     private JPanel panelPrincipal;
@@ -109,5 +110,79 @@ public class Vista {
         lblVistaPreviaImagen.setIcon(new ImageIcon(imagen));
         lblVistaPreviaImagen.setText("");
     }
+
+    public void alPulsarAñadir(ActionListener listener){
+        btnAnadir.addActionListener(listener);
+    }
+
+    public String obtenerMarca(){
+        return txtMarca.getText().trim();
+
+    }
+
+    public String obtenerModelo(){
+        return txtModelo.getText().trim();
+    }
+
+    public String obtenerPrecio(){
+        return txtPrecio.getText().trim();
+    }
+
+    public LocalDate obtenerFechaRegistro(){
+        return datePickerRegistro.getDate();
+    }
+
+    public void alPulsarEstrellas(ActionListener listener){
+        btnEstrella1.setActionCommand("1");
+        btnEstrella2.setActionCommand("2");
+        btnEstrella3.setActionCommand("3");
+        btnEstrella4.setActionCommand("4");
+        btnEstrella5.setActionCommand("5");
+
+        btnEstrella1.addActionListener(listener);
+        btnEstrella2.addActionListener(listener);
+        btnEstrella3.addActionListener(listener);
+        btnEstrella4.addActionListener(listener);
+        btnEstrella5.addActionListener(listener);
+    }
+
+    public void pintarEstrellas(int valoracion){
+        JButton[] estrellas = {
+                btnEstrella1, btnEstrella2, btnEstrella3, btnEstrella4, btnEstrella5
+        };
+
+        for (int i = 0; i < estrellas.length; i++) {
+            if (i < valoracion){
+                estrellas[i].setForeground(new Color(255, 191, 40));
+            } else {
+                estrellas[i].setForeground(new Color(130,145,155));
+            }
+        }
+    }
+
+    public String obtenerCampoEspecifico(){
+        return txtCampoEspecifico.getText().trim();
+    }
+
+    public String obtenerTipoMaterial(){
+        if(rbCamara.isSelected()) return "Cámara";
+        if(rbMicrofono.isSelected()) return  "Micrófono";
+        if(rbFoco.isSelected()) return "Foco";
+        if(rbProyector.isSelected()) return "Proyector";
+        if(rbAltavoz.isSelected()) return "Altavoz";
+
+        return null;
+    }
+
+
+
+
+
+
+    public void mostrarError(String mensaje){
+        JOptionPane.showMessageDialog(panelPrincipal,mensaje,"Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+
 
 }
