@@ -6,14 +6,18 @@ import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 import javax.swing.*;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.regex.Pattern;
 
 public class Vista {
     private JPanel panelPrincipal;
@@ -68,6 +72,7 @@ public class Vista {
     private JButton btnEliminar;
     private JMenuItem menuImportar = new JMenuItem("Importar XML");
     private JMenuItem menuExportar = new JMenuItem("Exportar XML");
+    private TableRowSorter<DefaultTableModel> ordenadorTabla;
 
     private void createUIComponents() {
 
@@ -191,6 +196,8 @@ public class Vista {
             }
         };
         tablaMateriales.setModel(modeloTabla);
+        ordenadorTabla = new TableRowSorter<>(modeloTabla);
+        tablaMateriales.setRowSorter(ordenadorTabla);
         Color fondoTabla = new Color(25, 44, 61);
         scrollTabla.getViewport().setBackground(fondoTabla);
 
@@ -238,11 +245,29 @@ public class Vista {
                     material.getValoracion(),
                     caracterisitca
             });
+
+
         }
 
 
     }
 
+    public void filtrarTabla(String texto) {
+        if (texto.isEmpty()){
+            ordenadorTabla.setRowFilter(null);
+        } else {
+            ordenadorTabla.setRowFilter(RowFilter.regexFilter("(?i)" + Pattern.quote(texto)));
+        }
+
+    }
+
+    public void alCambiarBusqueda(DocumentListener listener){
+        txtBuscar.getDocument().addDocumentListener(listener);
+    }
+
+    public String obtenerTextoBusqueda(){
+        return txtBuscar.getText().trim();
+    }
 
     public void resetearCampos(){
         JButton[] estrellas = {
@@ -363,11 +388,13 @@ public class Vista {
     }
     public File elegirArchivoImportacion(){
         JFileChooser selector = new JFileChooser();
-        int opcion = selector.showSaveDialog(panelPrincipal);
-
-        if (opcion ==  JFileChooser.APPROVE_OPTION){
+        selector.setFileFilter(new FileNameExtensionFilter("Archivos XML (*.xml)", "xml"));
+        selector.setAcceptAllFileFilterUsed(false);
+        int opcion = selector.showOpenDialog(panelPrincipal);
+        if (opcion == JFileChooser.APPROVE_OPTION) {
             return selector.getSelectedFile();
         }
+
         return null;
     }
 

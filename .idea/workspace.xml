@@ -19,11 +19,8 @@
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto1UD1Aitor/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/Vista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/controlador/ControladorMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/persistencia/GestorFicheros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/persistencia/GestorFicheros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aitorl/agenciamaterialaudiovisual/util/Util.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +141,7 @@
       <workItem from="1793259643570" duration="11892000" />
       <workItem from="1793343757483" duration="1679000" />
       <workItem from="1793531540922" duration="22107000" />
-      <workItem from="1793615240797" duration="37593000" />
+      <workItem from="1793615240797" duration="40965000" />
     </task>
     <servers />
   </component>

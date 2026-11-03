@@ -6,6 +6,8 @@ import com.aitorl.agenciamaterialaudiovisual.persistencia.GestorFicheros;
 import org.xml.sax.SAXException;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.xml.parsers.ParserConfigurationException;
@@ -409,6 +411,18 @@ public class ControladorMaterial {
                     Inventario inventarioImportado = gestor.importarXML(fichero);
                     for (MaterialAudiovisual material: inventarioImportado.obtenerMateriales()){
                         inventario.agregarMaterial(material);
+                        String id = material.getId();
+                        if(id != null && id.startsWith("MAT-")){
+                            try{
+                                int numero = Integer.parseInt(id.substring(4));
+
+                                if(numero >= siguienteId){
+                                    siguienteId = numero + 1;
+                                }
+                            }catch (NumberFormatException ex) {
+                                System.out.println("ID no numérico: " + id);
+                            }
+                        }
                     }
 
                     vista.actualizarTabla(inventario.obtenerMateriales());
@@ -419,6 +433,27 @@ public class ControladorMaterial {
                 }
 
 
+            }
+        });
+
+        vista.alCambiarBusqueda(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                buscar();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                buscar();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                buscar();
+            }
+
+            private void buscar(){
+                vista.filtrarTabla(vista.obtenerTextoBusqueda());
             }
         });
     }
