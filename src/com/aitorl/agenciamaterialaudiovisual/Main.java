@@ -10,10 +10,11 @@ public class Main {
         JFrame ventana = new JFrame("Agencia de Alquiler audiovisual");
         Vista vista = new Vista();
         Inventario inventario = new Inventario();
-        ControladorMaterial controlador = new ControladorMaterial(vista, inventario);
+
 
         ventana.setContentPane(vista.getPanelPrincipal());
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        ControladorMaterial controlador = new ControladorMaterial(vista, inventario);
 
         ventana.setSize(1125,775);
         ventana.setLocationRelativeTo(null);

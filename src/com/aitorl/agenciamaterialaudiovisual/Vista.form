@@ -632,23 +632,6 @@
                           </component>
                         </children>
                       </grid>
-                      <component id="3c1bf" class="javax.swing.JTextField" binding="txtCampoEspecifico">
-                        <constraints>
-                          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                            <preferred-size width="150" height="-1"/>
-                          </grid>
-                          <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-14336688"/>
-                          <disabledTextColor color="-3217153"/>
-                          <font name="Arial" size="13" style="0"/>
-                          <foreground color="-1"/>
-                          <horizontalAlignment value="2"/>
-                          <margin top="2" left="6" bottom="2" right="6"/>
-                          <preferredSize width="230" height="32"/>
-                        </properties>
-                      </component>
                       <component id="4e110" class="com.github.lgooddatepicker.components.DatePicker" binding="datePickerRegistro">
                         <constraints>
                           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -657,6 +640,20 @@
                         <properties>
                           <foreground color="-1"/>
                           <preferredSize width="230" height="32"/>
+                        </properties>
+                      </component>
+                      <component id="57762" class="javax.swing.JTextArea" binding="txtCampoEspecifico">
+                        <constraints>
+                          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="50"/>
+                          </grid>
+                          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-14336688"/>
+                          <font name="Arial" size="13" style="0"/>
+                          <foreground color="-1"/>
+                          <rows value="1"/>
                         </properties>
                       </component>
                     </children>

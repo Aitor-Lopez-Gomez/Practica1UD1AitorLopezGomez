@@ -153,7 +153,7 @@ public class GestorFicheros {
                 int potencia = Integer.parseInt(nodoMaterial.getElementsByTagName("potencia").item(0).getTextContent());
                 Altavoz altavoz = new Altavoz(id, marca, modelo, precio, fechaRegistro, valoracion, rutaImagen, potencia);
                 inventarioImportado.agregarMaterial(altavoz);
-            } else if (tipo.equals("Proyecto")){
+            } else if (tipo.equals("Proyector")){
                 int luminosidad = Integer.parseInt(nodoMaterial.getElementsByTagName("luminosidad").item(0).getTextContent());
                 Proyector proyector = new Proyector(id, marca, modelo, precio, fechaRegistro, valoracion, rutaImagen, luminosidad);
                 inventarioImportado.agregarMaterial(proyector);

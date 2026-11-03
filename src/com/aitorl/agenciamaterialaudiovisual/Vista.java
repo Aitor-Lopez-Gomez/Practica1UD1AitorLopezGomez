@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
@@ -60,7 +61,7 @@ public class Vista {
     private JButton btnEstrella3;
     private JButton btnEstrella4;
     private JButton btnEstrella5;
-    private JTextField txtCampoEspecifico;
+    private JTextArea txtCampoEspecifico;
     private JLabel lblBanner;
     private JLabel lblImagenLateral;
     private JLabel lblImagenMaterial;
@@ -109,14 +110,21 @@ public class Vista {
     }
 
     public void cambiarImagenMaterial(String nombreArchivo){
-        URL ruta = getClass().getResource("/" + nombreArchivo);
+        ImageIcon icono;
+        File archivo = new File(nombreArchivo);
+        if(archivo.isFile()){
+            icono = new ImageIcon(archivo.getAbsolutePath());
+        } else{
+            URL ruta = getClass().getResource("/" + nombreArchivo);
 
-        if(ruta == null){
-            lblVistaPreviaImagen.setIcon(null);
-            lblVistaPreviaImagen.setText("Imagen no disponible");
-            return;
+            if(ruta == null){
+                lblVistaPreviaImagen.setIcon(null);
+                lblVistaPreviaImagen.setText("Imagen no disponible");
+                return;
+            }
+            icono = new ImageIcon(ruta);
         }
-        ImageIcon icono = new ImageIcon(ruta);
+        
         Image imagen = icono.getImage().getScaledInstance(210,180, Image.SCALE_SMOOTH);
 
         lblVistaPreviaImagen.setIcon(new ImageIcon(imagen));
@@ -226,10 +234,6 @@ public class Vista {
             if(material instanceof Altavoz){
                 Altavoz altavoz = (Altavoz) material;
                 caracterisitca = altavoz.getPotenciaVatios() + " W";
-            }
-            if(material instanceof Altavoz){
-                Altavoz altavoz = (Altavoz) material;
-                caracterisitca = String.valueOf(altavoz.getPotenciaVatios() + " W");
             }
             if(material instanceof  Proyector){
                 Proyector proyector = (Proyector) material;
@@ -396,6 +400,45 @@ public class Vista {
         }
 
         return null;
+    }
+
+    public void alPulsarSalir(WindowListener listener){
+        JFrame ventana = (JFrame) SwingUtilities.getWindowAncestor(panelPrincipal);
+        ventana.addWindowListener(listener);
+    }
+    public void alPulsarSeleccionarImagen(ActionListener listener){
+        btnSeleccionarImagen.addActionListener(listener);
+    }
+
+    public void alPulsarQuitarImagen(ActionListener listener){
+        btnQuitarImagen.addActionListener(listener);
+    }
+
+    public File elegirImagen(){
+        JFileChooser selector = new JFileChooser();
+
+        selector.setFileFilter(new FileNameExtensionFilter("Imágenes JPG Y PNG", "jpg", "jpeg", "png"));
+        selector.setAcceptAllFileFilterUsed(false);
+
+        int opcion = selector.showOpenDialog(panelPrincipal);
+        if(opcion == JFileChooser.APPROVE_OPTION){
+            return selector.getSelectedFile();
+        }
+        return null;
+    }
+
+    public boolean mostrarImagenSeleccionada(File archivo){
+        ImageIcon icono = new ImageIcon(archivo.getAbsolutePath());
+        if(icono.getIconWidth() <= 0){
+            mostrarError("El archvio sleccionado no es una imagen válida.");
+            return false;
+        }
+
+        Image imagen = icono.getImage().getScaledInstance(210,180,Image.SCALE_SMOOTH);
+
+        lblVistaPreviaImagen.setIcon(new ImageIcon(imagen));
+        lblVistaPreviaImagen.setText("");
+        return true;
     }
 
 

@@ -3,6 +3,7 @@ package com.aitorl.agenciamaterialaudiovisual.controlador;
 import com.aitorl.agenciamaterialaudiovisual.Vista;
 import com.aitorl.agenciamaterialaudiovisual.modelo.*;
 import com.aitorl.agenciamaterialaudiovisual.persistencia.GestorFicheros;
+import com.aitorl.agenciamaterialaudiovisual.util.Util;
 import org.xml.sax.SAXException;
 
 import javax.swing.*;
@@ -14,6 +15,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -25,6 +28,8 @@ public class ControladorMaterial {
     private int valoracion = 0;
     private int siguienteId = 1;
     private String idMaterialSeleccionado = null;
+    private File imagenSeleccionada = null;
+    private boolean quitarImagen = false;
 
     public ControladorMaterial(Vista vista, Inventario inventario){
         this.vista = vista;
@@ -55,23 +60,27 @@ public class ControladorMaterial {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String tipo = e.getActionCommand();
+                String imagen = "";
 
                 if (tipo.equals("Cámara")){
                     vista.cambiarTextoCampo("Resolución: ");
-                    vista.cambiarImagenMaterial("camara.jpg");
+                    imagen = "camara.jpg";
                 } else if (tipo.equals("Micrófono")){
                     vista.cambiarTextoCampo("Tipo de conexión: ");
-                    vista.cambiarImagenMaterial("microfono.jpg");
+                    imagen = "microfono.jpg";
                 } else if (tipo.equals("Foco")){
                     vista.cambiarTextoCampo("Potencia (W): ");
-                    vista.cambiarImagenMaterial("foco.jpg");
+                    imagen = "foco.jpg";
                 } else if (tipo.equals("Altavoz")){
                     vista.cambiarTextoCampo("Potencia (W): ");
-                    vista.cambiarImagenMaterial("altavoz.jpg");
+                    imagen = "altavoz.jpg";
                 } else if (tipo.equals("Proyector")){
                     vista.cambiarTextoCampo("Luminosidad (lm): ");
-                    vista.cambiarImagenMaterial("proyector.jpg");
+                    imagen = "proyector.jpg";
+
                 }
+                vista.limpiarSeleccionTabla();
+                vista.cambiarImagenMaterial(imagen);
             }
         });
 
@@ -100,7 +109,11 @@ public class ControladorMaterial {
 
 
                     if(tipoMaterial.equals("Cámara")){
-                        Camara camara = new Camara(id,marca,modelo,precio,fechaRegistro,valoracion,"camara.jpg",campoEspecifico);
+                        String rutaImagen = "camara.jpg";
+                        if(imagenSeleccionada != null){
+                            rutaImagen = imagenSeleccionada.getPath();
+                        }
+                        Camara camara = new Camara(id,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,campoEspecifico);
                         boolean agregado = inventario.agregarMaterial(camara);
 
                         if(agregado){
@@ -113,7 +126,11 @@ public class ControladorMaterial {
                         }
                     }
                     if(tipoMaterial.equals("Micrófono")){
-                        Microfono microfono = new Microfono(id,marca,modelo,precio,fechaRegistro,valoracion,"microfono.jpg",campoEspecifico);
+                        String rutaImagen = "microfono.jpg";
+                        if(imagenSeleccionada != null){
+                            rutaImagen = imagenSeleccionada.getPath();
+                        }
+                        Microfono microfono = new Microfono(id,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,campoEspecifico);
                         boolean agregado = inventario.agregarMaterial(microfono);
 
                         if(agregado){
@@ -126,12 +143,16 @@ public class ControladorMaterial {
                         }
                     }
                     if(tipoMaterial.equals("Foco")){
+                        String rutaImagen = "foco.jpg";
+                        if(imagenSeleccionada != null){
+                            rutaImagen = imagenSeleccionada.getPath();
+                        }
                         int potencia = Integer.parseInt(campoEspecifico);
                         if (potencia <= 0) {
                             vista.mostrarError("La potencia debe ser mayor que cero.");
                             return;
                         }
-                        Foco foco = new Foco(id,marca,modelo,precio,fechaRegistro,valoracion,"foco.jpg",potencia);
+                        Foco foco = new Foco(id,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,potencia);
 
                         boolean agregado = inventario.agregarMaterial(foco);
 
@@ -145,12 +166,16 @@ public class ControladorMaterial {
                         }
                     }
                     if(tipoMaterial.equals("Altavoz")){
+                        String rutaImagen = "altavoz.jpg";
+                        if(imagenSeleccionada != null){
+                            rutaImagen = imagenSeleccionada.getPath();
+                        }
                         int potencia = Integer.parseInt(campoEspecifico);
                         if (potencia <= 0) {
                             vista.mostrarError("La potencia debe ser mayor que cero.");
                             return;
                         }
-                        Altavoz altavoz = new Altavoz(id,marca,modelo,precio,fechaRegistro,valoracion,"altavoz.jpg",potencia);
+                        Altavoz altavoz = new Altavoz(id,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,potencia);
                         boolean agregado = inventario.agregarMaterial(altavoz);
 
                         if(agregado){
@@ -163,12 +188,16 @@ public class ControladorMaterial {
                         }
                     }
                     if(tipoMaterial.equals("Proyector")){
+                        String rutaImagen = "proyector.jpg";
+                        if(imagenSeleccionada != null){
+                            rutaImagen = imagenSeleccionada.getPath();
+                        }
                         int luminosidad = Integer.parseInt(campoEspecifico);
                         if (luminosidad <= 0) {
                             vista.mostrarError("La luminosidad debe ser mayor que cero.");
                             return;
                         }
-                        Proyector proyector = new Proyector(id,marca,modelo,precio,fechaRegistro,valoracion,"proyector.jpg",luminosidad);
+                        Proyector proyector = new Proyector(id,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,luminosidad);
                         boolean agregado = inventario.agregarMaterial(proyector);
 
                         if(agregado){
@@ -234,6 +263,12 @@ public class ControladorMaterial {
                     vista.mostrarError("Primero debes seleccionar un material de la tabla.");
                     return;
                 }
+                MaterialAudiovisual materialActual = inventario.buscarMaterial(idMaterialSeleccionado);
+                String rutaImagen = materialActual.getRutaImagen();
+                if (imagenSeleccionada != null) {
+                    rutaImagen = imagenSeleccionada.getAbsolutePath();
+                }
+
 
 
                 String marca = vista.obtenerMarca();
@@ -255,7 +290,7 @@ public class ControladorMaterial {
                     }
 
                     if (tipoMaterial.equals("Cámara")){
-                        Camara camara = new Camara(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,"camara.jpg",campoEspecifico);
+                        Camara camara = new Camara(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,campoEspecifico);
                         boolean actualizando = inventario.actualizarMaterial(camara);
 
                         if (actualizando){
@@ -267,7 +302,7 @@ public class ControladorMaterial {
                         }
                     }
                     if(tipoMaterial.equals("Micrófono")){
-                        Microfono microfono = new Microfono(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,"microfono.jpg",campoEspecifico);
+                        Microfono microfono = new Microfono(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,campoEspecifico);
                         boolean actualizando = inventario.actualizarMaterial(microfono);
 
                         if(actualizando){
@@ -284,7 +319,7 @@ public class ControladorMaterial {
                             vista.mostrarError("La potencia debe ser mayor que cero.");
                             return;
                         }
-                        Foco foco = new Foco(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,"foco.jpg",potencia);
+                        Foco foco = new Foco(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,potencia);
 
                         boolean actualizando = inventario.actualizarMaterial(foco);
 
@@ -303,7 +338,7 @@ public class ControladorMaterial {
                             vista.mostrarError("La potencia debe ser mayor que cero.");
                             return;
                         }
-                        Altavoz altavoz = new Altavoz(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,"altavoz.jpg",potencia);
+                        Altavoz altavoz = new Altavoz(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,potencia);
                         boolean actualizando = inventario.actualizarMaterial(altavoz);
 
                         if(actualizando){
@@ -456,6 +491,65 @@ public class ControladorMaterial {
                 vista.filtrarTabla(vista.obtenerTextoBusqueda());
             }
         });
+
+        vista.alPulsarSalir(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int respuesta = Util.mensajeConfirmacion("¿Seguro que quieres salir?", "Confirmar salida");
+
+                if(respuesta == JOptionPane.YES_OPTION){
+                    e.getWindow().dispose();
+                }
+            }
+        });
+
+        vista.alPulsarSeleccionarImagen(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                File archivo = vista.elegirImagen();
+
+                if(archivo == null){
+                    return;
+                }
+
+                if(vista.mostrarImagenSeleccionada(archivo)){
+                    imagenSeleccionada = archivo;
+                }
+
+
+            }
+        });
+
+        vista.alPulsarQuitarImagen(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String tipo = vista.obtenerTipoMaterial();
+                String imagen = "";
+
+                if (tipo == null) {
+                    vista.mostrarError("Selecciona un tipo de material.");
+                    return;
+                }
+
+                if (tipo.equals("Cámara")) {
+                    imagen = "";
+                } else if (tipo.equals("Micrófono")) {
+                    imagen = "";
+                } else if (tipo.equals("Foco")) {
+                    imagen = "";
+                } else if (tipo.equals("Altavoz")) {
+                    imagen = "";
+                } else if (tipo.equals("Proyector")) {
+                    imagen = "";
+                }
+
+                imagenSeleccionada = null;
+                quitarImagen = true;
+
+                vista.cambiarImagenMaterial(imagen);
+
+            }
+        });
     }
 
 
@@ -500,7 +594,6 @@ public class ControladorMaterial {
 
 
 }
-
 
 
 

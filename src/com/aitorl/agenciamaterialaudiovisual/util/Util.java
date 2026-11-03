@@ -1,5 +1,9 @@
 package com.aitorl.agenciamaterialaudiovisual.util;
 
-public class Util {
+import javax.swing.*;
 
+public class Util {
+    public static int mensajeConfirmacion(String mensaje, String titulo){
+        return JOptionPane.showConfirmDialog(null,mensaje,titulo,JOptionPane.YES_NO_OPTION);
+    }
 }
