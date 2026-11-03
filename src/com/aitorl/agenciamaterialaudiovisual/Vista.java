@@ -10,6 +10,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -65,6 +66,8 @@ public class Vista {
     private JButton btnAnadir;
     private JButton btnGuardar;
     private JButton btnEliminar;
+    private JMenuItem menuImportar = new JMenuItem("Importar XML");
+    private JMenuItem menuExportar = new JMenuItem("Exportar XML");
 
     private void createUIComponents() {
 
@@ -236,6 +239,8 @@ public class Vista {
                     caracterisitca
             });
         }
+
+
     }
 
 
@@ -328,6 +333,44 @@ public class Vista {
                 JOptionPane.WARNING_MESSAGE);
         return opcion == JOptionPane.YES_OPTION;
     }
+
+    public JMenuBar crearBarraMenu(){
+        JMenuBar barraMenu = new JMenuBar();
+        JMenu menuArchivo = new JMenu("Archivo");
+
+
+        menuArchivo.add(menuImportar);
+        menuArchivo.add(menuExportar);
+        barraMenu.add(menuArchivo);
+        return barraMenu;
+    }
+
+    public void alPulsarExportar(ActionListener listener){
+        menuExportar.addActionListener(listener);
+    }
+
+    public File elegirArchvioExportacion(){
+        JFileChooser selector = new JFileChooser();
+        int opcion = selector.showSaveDialog(panelPrincipal);
+
+        if(opcion == JFileChooser.APPROVE_OPTION){
+            return selector.getSelectedFile();
+        }
+        return null;
+    }
+    public void alPulsarImportar(ActionListener listener){
+        menuImportar.addActionListener(listener);
+    }
+    public File elegirArchivoImportacion(){
+        JFileChooser selector = new JFileChooser();
+        int opcion = selector.showSaveDialog(panelPrincipal);
+
+        if (opcion ==  JFileChooser.APPROVE_OPTION){
+            return selector.getSelectedFile();
+        }
+        return null;
+    }
+
 
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(panelPrincipal,mensaje,"Error", JOptionPane.ERROR_MESSAGE);

@@ -15,9 +15,11 @@ public class Main {
         ventana.setContentPane(vista.getPanelPrincipal());
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ventana.setSize(1125,750);
+        ventana.setSize(1125,775);
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
+
+        ventana.setJMenuBar(vista.crearBarraMenu());
     }
 
 }

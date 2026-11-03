@@ -2,12 +2,18 @@ package com.aitorl.agenciamaterialaudiovisual.controlador;
 
 import com.aitorl.agenciamaterialaudiovisual.Vista;
 import com.aitorl.agenciamaterialaudiovisual.modelo.*;
+import com.aitorl.agenciamaterialaudiovisual.persistencia.GestorFicheros;
+import org.xml.sax.SAXException;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 
 
@@ -361,7 +367,63 @@ public class ControladorMaterial {
             }
         });
 
+        vista.alPulsarExportar(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                File fichero = vista.elegirArchvioExportacion();
+
+                if(fichero == null){
+                    return;
+                }
+                if(!fichero.getName().toLowerCase().endsWith(".xml")){
+                    fichero = new File(fichero.getAbsolutePath() + ".xml");
+                }
+
+                if(fichero.exists()){
+                    vista.mostrarError("El archivo ya esxiste. Elige otro nombre.");
+                    return;
+                }
+
+                GestorFicheros gestor = new GestorFicheros();
+                try {
+                    gestor.exportarXML(inventario,fichero);
+                } catch (ParserConfigurationException | TransformerException ex){
+                    ex.printStackTrace();
+                    vista.mostrarError("No se ha podido exportar el inventario");
+                }
+
+            }
+        });
+
+        vista.alPulsarImportar(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                File fichero = vista.elegirArchivoImportacion();
+
+                if (fichero == null){
+                    return;
+                }
+                try{
+                    GestorFicheros gestor = new GestorFicheros();
+                    Inventario inventarioImportado = gestor.importarXML(fichero);
+                    for (MaterialAudiovisual material: inventarioImportado.obtenerMateriales()){
+                        inventario.agregarMaterial(material);
+                    }
+
+                    vista.actualizarTabla(inventario.obtenerMateriales());
+                    System.out.println(inventarioImportado.obtenerMateriales().size());
+                } catch (ParserConfigurationException  | SAXException | IOException ex){
+                    vista.mostrarError("No se ha podido imporar el archvio XML.");
+                    ex.printStackTrace();
+                }
+
+
+            }
+        });
     }
+
+
 
     private boolean validarCamposObligatorios(String marca, String modelo, String precioTexto, LocalDate fechaRegistro, String campoEspecifico, String tipoMaterial) {
 
