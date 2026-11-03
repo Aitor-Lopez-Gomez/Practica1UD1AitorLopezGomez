@@ -525,6 +525,7 @@ public class ControladorMaterial {
 
                 if(vista.mostrarImagenSeleccionada(archivo)){
                     imagenSeleccionada = archivo;
+                    quitarImagen = false;
                 }
 
 
