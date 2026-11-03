@@ -19,7 +19,13 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.regex.Pattern;
-
+/**
+ * Gestiona la interfaz gráfica de la aplicación.
+ * Permite mostrar los materiales, recoger los datos
+ * introducidos por el usuario y actualizar los componentes
+ * visuales mediante Java Swing.
+ *
+ */
 public class Vista {
     private JPanel panelPrincipal;
     private JPanel panelMenu;
@@ -117,7 +123,7 @@ public class Vista {
         } else{
             URL ruta = getClass().getResource("/" + nombreArchivo);
 
-            if(ruta == null){
+            if(ruta == null || nombreArchivo.isEmpty()){
                 lblVistaPreviaImagen.setIcon(null);
                 lblVistaPreviaImagen.setText("Imagen no disponible");
                 return;
@@ -131,7 +137,7 @@ public class Vista {
         lblVistaPreviaImagen.setText("");
     }
 
-    public void alPulsarAñadir(ActionListener listener){
+    public void alPulsarAnadir(ActionListener listener){
         btnAnadir.addActionListener(listener);
     }
 

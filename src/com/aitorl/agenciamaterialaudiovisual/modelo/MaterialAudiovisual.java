@@ -1,7 +1,12 @@
 package com.aitorl.agenciamaterialaudiovisual.modelo;
 
 import java.time.LocalDate;
-
+/**
+ * Representa un material audiovisual de la agencia de alquiler.
+ * Contiene los atributos comunes de todos los tipos de materiales.
+ * Es la clase padre de Camara, Microfono, Foco, Altavoz y Proyector.
+ *
+ */
 public class MaterialAudiovisual {
     private String id;
     private String marca;
@@ -11,6 +16,17 @@ public class MaterialAudiovisual {
     private int valoracion;
     private String rutaImagen;
 
+    /**
+     * Crea un material audiovisual con sus datos principales.
+     *
+     * @param id Identificador único del material.
+     * @param marca Marca del material.
+     * @param modelo Modelo del material.
+     * @param precio Precio de alquiler por día.
+     * @param fechaRegistro Fecha de registro del material.
+     * @param valoracion Valoración del material de 1 a 5 estrellas.
+     * @param rutaImagen Ruta de la imagen asociada al material.
+     */
     public MaterialAudiovisual(String id, String marca, String modelo, double precio, LocalDate fechaRegistro, int valoracion, String rutaImagen) {
         this.id = id;
         this.marca = marca;

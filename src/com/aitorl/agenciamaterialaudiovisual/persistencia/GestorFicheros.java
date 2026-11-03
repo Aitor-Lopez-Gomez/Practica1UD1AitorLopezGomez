@@ -13,8 +13,20 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-
+/**
+ * Gestiona la importación y exportación del inventario
+ * de materiales audiovisuales mediante archivos XML.
+ *
+ */
 public class GestorFicheros {
+    /**
+     * Exporta los materiales del inventario a un archivo XML.
+     *
+     * @param inventario Inventario que queremos exportar.
+     * @param fichero Archivo donde se guardarán los datos.
+     * @throws ParserConfigurationException Si falla la configuración del documento XML.
+     * @throws TransformerException Si ocurre un error al generar el archivo XML.
+     */
     public void exportarXML(Inventario inventario, File fichero) throws ParserConfigurationException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -116,7 +128,15 @@ public class GestorFicheros {
         transformer.transform(src, resultado);
 
     }
-
+    /**
+     * Lee un archivo XML y recupera los materiales almacenados.
+     *
+     * @param fichero Archivo XML que queremos importar.
+     * @return Inventario con los materiales recuperados del archivo.
+     * @throws ParserConfigurationException Si falla la configuración del lector XML.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     * @throws SAXException Si ocurre un error al procesar el XML.
+     */
     public Inventario importarXML(File fichero) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();

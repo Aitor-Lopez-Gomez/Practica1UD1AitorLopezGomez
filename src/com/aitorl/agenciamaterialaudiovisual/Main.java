@@ -4,7 +4,12 @@ import com.aitorl.agenciamaterialaudiovisual.controlador.ControladorMaterial;
 import com.aitorl.agenciamaterialaudiovisual.modelo.Inventario;
 
 import javax.swing.*;
-
+/**
+ * Clase principal de la aplicación de alquiler audiovisual.
+ * Inicializa la ventana, la vista, el inventario
+ * y el controlador para ejecutar el programa.
+ *
+ */
 public class Main {
     public static void main(String[] args) {
         JFrame ventana = new JFrame("Agencia de Alquiler audiovisual");

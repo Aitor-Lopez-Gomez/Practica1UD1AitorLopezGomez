@@ -20,7 +20,13 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-
+/**
+ * Controla la comunicación entre la vista y el inventario.
+ * Gestiona los eventos de los botones, la búsqueda,
+ * la selección de materiales y las operaciones
+ * de importación y exportación.
+ *
+ */
 
 public class ControladorMaterial {
     private Vista vista;
@@ -84,7 +90,7 @@ public class ControladorMaterial {
             }
         });
 
-        vista.alPulsarAñadir(new ActionListener() {
+        vista.alPulsarAnadir(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = "MAT-" + siguienteId;
@@ -265,7 +271,9 @@ public class ControladorMaterial {
                 }
                 MaterialAudiovisual materialActual = inventario.buscarMaterial(idMaterialSeleccionado);
                 String rutaImagen = materialActual.getRutaImagen();
-                if (imagenSeleccionada != null) {
+                if (quitarImagen){
+                    rutaImagen = "";
+                } else if (imagenSeleccionada != null) {
                     rutaImagen = imagenSeleccionada.getAbsolutePath();
                 }
 
@@ -355,7 +363,7 @@ public class ControladorMaterial {
                             vista.mostrarError("La luminosidad debe ser mayor que cero.");
                             return;
                         }
-                        Proyector proyector = new Proyector(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,"proyector.jpg",luminosidad);
+                        Proyector proyector = new Proyector(idMaterialSeleccionado,marca,modelo,precio,fechaRegistro,valoracion,rutaImagen,luminosidad);
                         boolean actualizando = inventario.actualizarMaterial(proyector);
 
                         if(actualizando){
