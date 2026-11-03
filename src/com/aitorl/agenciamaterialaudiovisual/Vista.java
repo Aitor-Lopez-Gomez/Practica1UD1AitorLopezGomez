@@ -1,6 +1,7 @@
 package com.aitorl.agenciamaterialaudiovisual;
 
 import com.aitorl.agenciamaterialaudiovisual.modelo.*;
+import com.aitorl.agenciamaterialaudiovisual.util.Util;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -386,10 +387,14 @@ public class Vista {
 
     public File elegirArchvioExportacion(){
         JFileChooser selector = new JFileChooser();
+        File ultimaCarpeta = Util.leerUltimaRuta();
         int opcion = selector.showSaveDialog(panelPrincipal);
 
         if(opcion == JFileChooser.APPROVE_OPTION){
             return selector.getSelectedFile();
+        }
+        if (ultimaCarpeta != null) {
+            selector.setCurrentDirectory(ultimaCarpeta);
         }
         return null;
     }

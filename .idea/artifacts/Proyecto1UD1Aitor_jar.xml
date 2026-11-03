@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Proyecto1UD1Aitor:jar">
+  <artifact type="jar" build-on-make="true" name="Proyecto1UD1Aitor:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Proyecto1UD1Aitor_jar</output-path>
     <root id="archive" name="Proyecto1UD1Aitor.jar">
       <element id="directory" name="META-INF">

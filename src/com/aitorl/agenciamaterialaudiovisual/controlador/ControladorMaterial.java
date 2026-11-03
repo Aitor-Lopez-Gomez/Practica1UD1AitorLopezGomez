@@ -432,6 +432,9 @@ public class ControladorMaterial {
                 GestorFicheros gestor = new GestorFicheros();
                 try {
                     gestor.exportarXML(inventario,fichero);
+                    File carpeta = fichero.getAbsoluteFile().getParentFile();
+
+                    Util.guardarUltimaRuta(carpeta);
                 } catch (ParserConfigurationException | TransformerException ex){
                     ex.printStackTrace();
                     vista.mostrarError("No se ha podido exportar el inventario");
